@@ -4,11 +4,11 @@
 
 @font-face {
     font-family: 'cool';
-    src: url('/public/font/coolvetica-rg.otf') format('truetype'),
+    src: url('/font/coolvetica-rg.otf') format('truetype'),
     /* Add more src URLs for different font formats if necessary */
 }
 @font-face {
     font-family: 'coolit';
-    src: url('/public/font/coolvetica-rg-it.otf') format('truetype'),
+    src: url('/font/coolvetica-rg-it.otf') format('truetype'),
     /* Add more src URLs for different font formats if necessary */
 }
