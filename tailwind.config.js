@@ -9,13 +9,9 @@ module.exports = {
       'coolit' : ['coolit', 'sans-serif'],
       'heather' : ['heather', 'sans-serif'],
       'tnanti' : ['tnanti', 'sans-serif'],
-  },
-  extend: {
+    },
     animation: {
     },
-    keyframes: {
-    },
-  },
   },
   plugins: [
     require('flowbite/plugin')
