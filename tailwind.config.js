@@ -11,6 +11,8 @@ module.exports = {
       'tnanti' : ['tnanti', 'sans-serif'],
     },
     animation: {
+  },
+  keyframes: {
     },
   },
   plugins: [
