@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'cool';
+    src: url('/src/font/coolveticarg.otf') format('truetype'),
+}
+@font-face {
+    font-family: 'coolit';
+    src: url('/src/font/coolveticait.otf') format('truetype'),
+}
+@font-face {
+    font-family: 'heather';
+    src: url('/src/font/Heathergreen.otf') format('truetype'),
+}
+
+@font-face {
+    font-family: 'tnanti';
+    src: url('/src/font/tnanti.otf') format('truetype'),
+}
+
