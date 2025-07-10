@@ -20,3 +20,12 @@
   font-weight: 700; /* 700 untuk Bold */
   font-style: normal;
 }
+
+@media (hover: hover) {
+  .hover\:underline:hover {
+    text-decoration: underline;
+  }
+}
+
+@custom-variant hover (&:hover);
+@custom-variant focus (&:focus);

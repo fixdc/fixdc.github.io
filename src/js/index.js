@@ -1,6 +1,46 @@
 document.addEventListener('DOMContentLoaded', function () {
   
   // ===================================
+  // KODE BARU UNTUK ANIMASI PRELOADER
+  // ===================================
+  const loader = document.getElementById('loader');
+  const loaderText = document.getElementById('loader-text');
+  const loaderPanel1 = document.getElementById('loader-panel-1');
+  const loaderPanel2 = document.getElementById('loader-panel-2');
+
+  // Pastikan elemen loader ada sebelum menjalankan kode
+  if (loader && loaderText && loaderPanel1 && loaderPanel2) {
+    
+    // 1. Munculkan teks "Fikri." setelah DOM siap
+    setTimeout(() => {
+      loaderText.classList.remove('opacity-0');
+    }, 100);
+
+    // 2. Buat fungsi untuk menyembunyikan loader
+    const hideLoader = () => {
+      // Fade out teks dulu
+      loaderText.classList.add('opacity-0');
+      
+      // Setelah teks mulai hilang, geser panel
+      setTimeout(() => {
+        loaderPanel1.style.transform = 'translateY(-100%)';
+        loaderPanel2.style.transform = 'translateY(100%)';
+      }, 500); // Jeda 500ms agar sinkron dengan transisi opacity teks
+
+      // Hapus total elemen loader dari DOM setelah animasi selesai
+      // (500ms untuk fade text + 1000ms untuk slide panel)
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 1500);
+    };
+
+    // 3. Jalankan fungsi hideLoader setelah semua resource halaman (gambar, dll) dimuat
+    window.addEventListener('load', () => {
+      // Beri jeda 1 detik untuk efek dramatis sebelum loader hilang
+      setTimeout(hideLoader, 1000);
+    });
+  }
+  // ===================================
   // KODE NAVBAR DAN MENU MOBILE
   // ===================================
   const navbar = document.getElementById('navbar');
@@ -82,5 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         });
       });
-    }
+  }
+  
 });
