@@ -16,7 +16,7 @@
       referrerpolicy="no-referrer"
     />
     <style>
-      git init html {
+      html {
         scroll-behavior: smooth;
       }
       @media (hover: hover) {
@@ -99,6 +99,19 @@
       .transition-opacity-500 {
         transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
       }
+      .nav-link.active {
+        color: #2a4759; /* Warna teks lebih gelap */
+        position: relative;
+      }
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #2a4759;
+      }
     </style>
   </head>
   <body class="bg-[#EEEEEE] scroll-smooth">
@@ -153,15 +166,16 @@
 
     <header
       id="navbar"
-      class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out"
+      style="opacity: 1"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-in-out"
     >
       <div
         id="navbar-container"
-        class="container mx-auto flex justify-between items-center p-4 transition-all duration-500 ease-in-out"
+        class="container mx-auto flex justify-between items-center p-4 transition-all duration-700 ease-in-out"
       >
         <a
           href="#"
-          class="font-tommy text-2xl font-bold text-orange-400 pl-2 animate-pulse flex"
+          class="font-tommy text-2xl font-bold text-orange-400 pl-2 flex"
           ><img src="public/img/logo.webp" alt="" class="w-8 h-8" /> fikri.co</a
         >
         <nav
@@ -905,7 +919,7 @@
                 </div>
                 <div>
                   <h3 class="font-tommy text-base font-semibold text-gray-900">
-                    My Office:
+                    My Location:
                   </h3>
                   <p class="mt-1 text-base text-gray-600">Jakarta, Indonesia</p>
                 </div>
@@ -955,7 +969,7 @@
                 </div>
                 <div>
                   <h3 class="font-tommy text-base font-semibold text-gray-900">
-                    Email Us:
+                    My Email:
                   </h3>
                   <p class="mt-1 text-base text-gray-600">
                     aidhil522@gmail.com
