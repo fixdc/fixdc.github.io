@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="src/output.css" rel="stylesheet" />
+    <title>fixdc.space</title>
+    <style>
+      /* Font Face Declarations */
+      @font-face {
+        font-family: "Tommy";
+        src: url("public/font/tommy_regular.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Tommy";
+        src: url("public/font/tommy_medium.otf") format("opentype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Tommy";
+        src: url("public/font/tommy_bold.otf") format("opentype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Tommy-outline";
+        src: url("public/font/tommy_regular_outline.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Tommy-outline";
+        src: url("public/font/tommy_medium_outline.otf") format("opentype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Tommy-outline";
+        src: url("public/font/tommy_bold_outline.otf") format("opentype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .font-tommy {
+        font-family: "Tommy", sans-serif;
+      }
+
+      .font-tommy-outline {
+        font-family: "Tommy-outline", sans-serif;
+      }
+      @keyframes scroll-down {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(8px);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .animate-scroll-down {
+        animation: scroll-down 2s infinite ease-in-out;
+      }
+
+      /* 3. Style transisi (tetap sama) */
+      .transition-transform-1000 {
+        transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .transition-opacity-500 {
+        transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    </style>
+  </head>
+  <body class="bg-[#EEEEEE]">
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 bg-black/90 backdrop-blur-md z-40 hidden md:hidden"
+    >
+      <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <a
+          href="#"
+          class="text-white text-2xl font-tommy font-medium hover:text-[#F79B72] transition-colors"
+          >Home</a
+        >
+        <a
+          href="#"
+          class="text-white text-2xl font-tommy font-medium hover:text-[#F79B72] transition-colors"
+          >About</a
+        >
+        <a
+          href="#"
+          class="text-white text-2xl font-tommy font-medium hover:text-[#F79B72] transition-colors"
+          >Services</a
+        >
+        <a
+          href="#"
+          class="text-white text-2xl font-tommy font-medium hover:text-[#F79B72] transition-colors"
+          >Contact</a
+        >
+        <a
+          href="#"
+          class="px-8 py-3 border border-orange-500 text-white rounded-full hover:bg-orange-500 transition-colors font-tommy font-medium"
+          >Hire me &rarr;</a
+        >
+      </div>
+    </div>
+
+    <header
+      id="navbar"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out"
+    >
+      <div
+        id="navbar-container"
+        class="container mx-auto flex justify-between items-center p-4 transition-all duration-500 ease-in-out"
+      >
+        <a
+          href="#"
+          class="font-tommy text-2xl font-bold text-orange-400 pl-2 animate-pulse"
+          >fikri.co</a
+        >
+        <nav
+          class="hidden md:flex items-center space-x-8 font-tommy font-medium"
+        >
+          <a href="#" class="text-orange-400 transition-colors">Home</a>
+          <a href="#" class="text-orange-400 transition-colors">About</a>
+          <a href="#" class="text-orange-400 transition-colors">Services</a>
+          <a href="#" class="text-orange-400 transition-colors">Contact</a>
+        </nav>
+        <a
+          href="#"
+          class="hidden md:inline-block px-5 py-2 border-2 border-orange-400 text-orange-400 font-tommy hover:text-white transition-all rounded-full hover:bg-orange-400 hover:scale-110"
+          >Hire me &rarr;</a
+        >
+
+        <button id="menu-btn" class="md:hidden text-orange-400 relative z-10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-8 h-8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div
+      class="fixed rotate-90 z-30 bottom-20 left-10 font-tommy font-light text-orange-400"
+    >
+      <h1>FIXDC.SPACE</h1>
+    </div>
+
+    <div
+      id="main-content"
+      class="relative flex h-screen items-center justify-center bg-cover bg-center bg-[#DDDDDD]"
+    >
+      <div class="absolute inset-0"></div>
+      <div class="relative z-10 text-center text-white">
+        <p class="font-tommy text-lg uppercase tracking-widest text-gray-400">
+          Web Developer & Designer
+        </p>
+        <h1
+          class="font-tommy text-6xl font-bold md:text-8xl lg:text-9xl text-[#2A4759]"
+        >
+          Fikri Setiansyah
+        </h1>
+      </div>
+      <div
+        class="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 font-tommy text-orange-400"
+      >
+        <a href="#next-section" class="flex flex-col items-center">
+          <span class="font-inter text-sm">Scroll Down</span>
+          <div class="mt-2 h-8 w-5 rounded-full border-2 border-orange-400">
+            <div
+              class="h-2 w-1 animate-scroll-down rounded-full bg-orange-300"
+              style="margin: 4px auto 0"
+            ></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <section class="overflow-hidden py-20 mx-32">
+      <div class="container mx-auto pb-16">
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-4">
+          <div class="h-16 w-56 flex-shrink-0 overflow-hidden rounded-full">
+            <img
+              class="h-full w-full object-cover"
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=871&auto=format&fit=crop"
+              alt="Team collaborating"
+            />
+          </div>
+          <h1 class="font-tommy text-6xl font-medium lg:text-7xl text-gray-900">
+            Unique
+            <em class="font-playfair font-bold not-italic text-amber-600"
+              >Ideas</em
+            >
+          </h1>
+        </div>
+        <div
+          class="mt-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-8"
+        >
+          <h2 class="font-tommy text-6xl font-medium lg:text-7xl text-gray-900">
+            For Your
+            <em class="font-playfair font-bold not-italic text-amber-600"
+              >Business.</em
+            >
+          </h2>
+          <a
+            href="#"
+            class="flex-shrink-0 group flex items-center gap-x-3 rounded-full bg-orange-500 px-8 py-5 text-black transition hover:bg-orange-400"
+          >
+            <span class="font-tommy text-sm font-bold tracking-wider"
+              >WHAT WE DO</span
+            >
+            <div class="relative h-6 w-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="h-6 w-6 transform transition-transform duration-400 group-hover:translate-x-12"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="container mx-auto pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div
+            class="group relative flex flex-col justify-between border border-gray-400 p-8 min-h-[16rem] transition-all duration-400 hover:bg-white hover:shadow-2xl"
+          >
+            <div
+              class="absolute top-0 left-0 h-1 w-full scale-x-0 bg-orange-500 transition-transform duration-400 ease-in-out group-hover:scale-x-100 origin-left"
+            ></div>
+            <div>
+              <h3 class="font-tommy text-xl font-medium text-gray-900">
+                web and Identity Design
+              </h3>
+              <div
+                class="overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out group-hover:max-h-40 group-hover:opacity-100"
+              >
+                <p class="mt-4 font-tommy text-gray-600">
+                  We craft unique brand identities that resonate with your
+                  audience.
+                </p>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="h-3 w-3 rounded-full bg-gray-400 transition-opacity duration-400 group-hover:opacity-0"
+              ></div>
+              <a
+                href="#"
+                class="absolute bottom-0 left-0 flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-black opacity-0 transition-all duration-400 group-hover:opacity-100 group-hover:scale-110"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="h-5 w-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="group relative flex flex-col justify-between border border-gray-400 p-8 min-h-[16rem] transition-all duration-400 hover:bg-white hover:shadow-2xl"
+          >
+            <div
+              class="absolute top-0 left-0 h-1 w-full scale-x-0 bg-orange-500 transition-transform duration-400 ease-in-out group-hover:scale-x-100 origin-left"
+            ></div>
+            <div>
+              <h3 class="font-tommy text-xl font-medium text-gray-900">
+                Website Design and Development
+              </h3>
+              <div
+                class="overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out group-hover:max-h-40 group-hover:opacity-100"
+              >
+                <p class="mt-4 font-tommy text-gray-600">
+                  Building responsive, high-performance websites.
+                </p>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="h-3 w-3 rounded-full bg-gray-400 transition-opacity duration-400 group-hover:opacity-0"
+              ></div>
+              <a
+                href="#"
+                class="absolute bottom-0 left-0 flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-black opacity-0 transition-all duration-400 group-hover:opacity-100 group-hover:scale-110"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="h-5 w-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="group relative flex flex-col justify-between border border-gray-400 p-8 min-h-[16rem] transition-all duration-400 hover:bg-white hover:shadow-2xl"
+          >
+            <div
+              class="absolute top-0 left-0 h-1 w-full scale-x-0 bg-orange-500 transition-transform duration-400 ease-in-out group-hover:scale-x-100 origin-left"
+            ></div>
+            <div>
+              <h3 class="font-tommy text-xl font-medium text-gray-900">
+                Advertising and Marketing
+              </h3>
+              <div
+                class="overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out group-hover:max-h-40 group-hover:opacity-100"
+              >
+                <p class="mt-4 font-tommy text-gray-600">
+                  Creating impactful campaigns that capture attention and drive
+                  business growth.
+                </p>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="h-3 w-3 rounded-full bg-gray-400 transition-opacity duration-400 group-hover:opacity-0"
+              ></div>
+              <a
+                href="#"
+                class="absolute bottom-0 left-0 flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-black opacity-0 transition-all duration-400 group-hover:opacity-100 group-hover:scale-110"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="h-5 w-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="group relative flex flex-col justify-between border border-gray-400 p-8 min-h-[16rem] transition-all duration-400 hover:bg-white hover:shadow-2xl"
+          >
+            <div
+              class="absolute top-0 left-0 h-1 w-full scale-x-0 bg-orange-500 transition-transform duration-400 ease-in-out group-hover:scale-x-100 origin-left"
+            ></div>
+            <div>
+              <h3 class="font-tommy text-xl font-medium text-gray-900">
+                Creative Consulting
+              </h3>
+              <div
+                class="overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out group-hover:max-h-40 group-hover:opacity-100"
+              >
+                <p class="mt-4 font-tommy text-gray-600">
+                  Providing strategic insights and creative direction to elevate
+                  your projects.
+                </p>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="h-3 w-3 rounded-full bg-gray-400 transition-opacity duration-400 group-hover:opacity-0"
+              ></div>
+              <a
+                href="#"
+                class="absolute bottom-0 left-0 flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-black opacity-0 transition-all duration-400 group-hover:opacity-100 group-hover:scale-110"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  class="h-5 w-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="about-us" class="bg-[#DDDDDD] py-24 sm:py-32">
+      <div class="mx-32 max-w-7xl">
+        <div
+          class="grid grid-cols-1 items-center gap-x-16 gap-y-16 lg:grid-cols-2"
+        >
+          <div>
+            <h2
+              class="font-tommy text-5xl tracking-tight text-gray-900 sm:text-6xl"
+            >
+              <span class="font-bold text-orange-400">Discover</span><br /><span
+                class="font-bold text-orange-400"
+                >My</span
+              ><span class="font-light">Works</span>
+            </h2>
+            <div
+              class="mt-8 space-y-7 text-base leading-7 text-gray-600 font-tommy"
+            >
+              <p>
+                Welcome to my collection of works. Each project showcased here
+                is a product of my passion for transforming ambitious ideas into
+                functional and beautiful realities. Drawing from a diverse skill
+                set, I specialize in crafting compelling digital experiences
+                that solve real-world problems.
+              </p>
+              <p>
+                My approach is rooted in close collaboration with clients. I
+                believe the best results come from a partnership where unique
+                perspectives meet to foster an environment of boundless
+                creativity. By harnessing my expertise, I deliver extraordinary
+                results that consistently aim to surpass expectations.
+              </p>
+            </div>
+            <div class="mt-10 flex items-center gap-x-6">
+              <img
+                src="public/img/author.webp"
+                alt="Author portrait"
+                class="h-16 w-16 flex-none rounded-full bg-gray-50 object-cover"
+              />
+              <div>
+                <p class="font-tommy text-base font-semibold text-gray-900">
+                  Passionately Creating Design Wonders
+                </p>
+                <p class="font-tommy text-sm text-gray-600">
+                  Unleashing Boundless Creativity
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="h-full w-full">
+            <img
+              src="public/img/about.webp"
+              alt="Design studio"
+              class="w-full h-full rounded-2xl bg-gray-100 object-cover hover:scale-105 hover:rotate-2 transition-all"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="works" class="bg-[#DDDDDD] py-20">
+      <div class="container mx-auto px-6 lg:px-32">
+        <div class="text-center">
+          <h2 class="font-tommy text-4xl font-bold text-gray-900 sm:text-5xl">
+            Some Recent Works
+          </h2>
+          <p class="mt-4 font-tommy text-lg leading-8 text-gray-600">
+            A collection of my best projects.
+          </p>
+        </div>
+        <div
+          id="filter-buttons"
+          class="mt-12 flex flex-wrap justify-center gap-x-2 gap-y-4 font-tommy"
+        >
+          <button
+            class="filter-btn rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-300 bg-orange-500 text-white"
+            data-filter="all"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn rounded-full px-5 py-2 text-sm font-semibold text-gray-600 hover:bg-white transition-colors duration-300"
+            data-filter="web"
+          >
+            Web Developments
+          </button>
+          <button
+            class="filter-btn rounded-full px-5 py-2 text-sm font-semibold text-gray-600 hover:bg-white transition-colors duration-300"
+            data-filter="development"
+          >
+            Graphic Design
+          </button>
+          <button
+            class="filter-btn rounded-full px-5 py-2 text-sm font-semibold text-gray-400 hover:bg-white transition-colors duration-300"
+            data-filter="web"
+            disabled
+          >
+            Coming Soon...
+          </button>
+        </div>
+        <div
+          id="project-gallery"
+          class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <a
+            href="#"
+            class="project-item group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-in-out"
+            data-category="development"
+            ><img
+              src="public/img/lunaai.webp"
+              alt="Project Title"
+              class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            ></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-4">
+              <div
+                class="transform transition-transform duration-500 ease-in-out translate-y-8 group-hover:translate-y-0"
+              >
+                <h3 class="font-tommy text-xl font-bold text-white">
+                  Stream Thumbnail
+                </h3>
+                <p class="font-tommy text-sm text-white/80">Graphic Design</p>
+              </div>
+            </div></a
+          >
+          <a
+            href="#"
+            class="project-item group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-in-out"
+            data-category="web"
+            ><img
+              src="public/img/lunaai.webp"
+              alt="Project Title"
+              class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            ></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-4">
+              <div
+                class="transform transition-transform duration-500 ease-in-out translate-y-8 group-hover:translate-y-0"
+              >
+                <h3 class="font-tommy text-xl font-bold text-white">
+                  Library Website
+                </h3>
+                <p class="font-tommy text-sm text-white/80">web</p>
+              </div>
+            </div></a
+          >
+          <a
+            href="#"
+            class="project-item group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-in-out"
+            data-category="web"
+            ><img
+              src="public/img/lunaai.webp"
+              alt="Project Title"
+              class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            ></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-4">
+              <div
+                class="transform transition-transform duration-500 ease-in-out translate-y-8 group-hover:translate-y-0"
+              >
+                <h3 class="font-tommy text-xl font-bold text-white">
+                  Lunatic.Ai
+                </h3>
+                <p class="font-tommy text-sm text-white/80">AI Website</p>
+              </div>
+            </div></a
+          >
+          <a
+            href="#"
+            class="project-item group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-in-out"
+            data-category="development"
+            ><img
+              src="public/img/lunaai.webp"
+              alt="Project Title"
+              class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            ></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-4">
+              <div
+                class="transform transition-transform duration-500 ease-in-out translate-y-8 group-hover:translate-y-0"
+              >
+                <h3 class="font-tommy text-xl font-bold text-white">Posters</h3>
+                <p class="font-tommy text-sm text-white/80">Poster Design</p>
+              </div>
+            </div></a
+          >
+          <a
+            href="#"
+            class="project-item group relative block overflow-hidden rounded-2xl transition-all duration-300 ease-in-out"
+            data-category="web"
+            ><img
+              src="public/img/lunaai.webp"
+              alt="Project Title"
+              class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            ></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-4">
+              <div
+                class="transform transition-transform duration-500 ease-in-out translate-y-8 group-hover:translate-y-0"
+              >
+                <h3 class="font-tommy text-xl font-bold text-white">
+                  SCRUBIX'S Campaign
+                </h3>
+                <p class="font-tommy text-sm text-white/80">web</p>
+              </div>
+            </div></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <script src="src/js/index.js"></script>
+  </body>
+</html>

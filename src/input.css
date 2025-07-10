@@ -1,0 +1,22 @@
+@import "tailwindcss";
+/* 1. Deklarasikan font custom "Tommy" */
+@font-face {
+  font-family: "Tommy_reg"; /* Kita beri nama 'Tommy' */
+  src: url("../public/font/tommy_regular.otf") format("opentype");
+  font-weight: 400; /* 400 untuk Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommy_med";
+  src: url("../public/font/tommy_medium.otf") format("opentype");
+  font-weight: 500; /* 500 untuk Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommy_bold";
+  src: url("../public/font/tommy_bold.otf") format("opentype");
+  font-weight: 700; /* 700 untuk Bold */
+  font-style: normal;
+}
