@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', function () {
   if (navbar && navbarContainer) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
-        navbar.classList.add('top-4', 'left-4', 'right-4','mx-12');
+        navbar.classList.add('top-4', 'left-4', 'right-4','mx-4','md:mx-12');
         navbar.classList.remove('w-full');
         navbarContainer.classList.add('rounded-2xl', 'bg-white/20', 'shadow-xl', 'backdrop-blur-md');
       } else {
-        navbar.classList.remove('top-4', 'left-4', 'right-4','mx-12');
+        navbar.classList.remove('top-4', 'left-4', 'right-4','mx-4','md:mx-12');
         navbar.classList.add('w-full');
         navbarContainer.classList.remove('rounded-2xl', 'bg-white/20', 'shadow-xl', 'backdrop-blur-md');
       }
