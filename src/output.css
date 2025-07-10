@@ -1046,6 +1046,12 @@
       translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
+  .hover\:translate-x-4 {
+    &:hover {
+      --tw-translate-x: calc(var(--spacing) * 4);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
   .hover\:scale-105 {
     &:hover {
       --tw-scale-x: 105%;
@@ -1274,6 +1280,14 @@
   .md\:opacity-0 {
     @media (width >= 48rem) {
       opacity: 0%;
+    }
+  }
+  .md\:hover\:-translate-x-4 {
+    @media (width >= 48rem) {
+      &:hover {
+        --tw-translate-x: calc(var(--spacing) * -4);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
     }
   }
   .lg\:col-span-1 {
