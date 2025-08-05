@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         navbar.classList.remove('p-8');
         navbar.classList.add('w-full');
-        navbarContainer.classList.remove('rounded-2xl', 'bg-white', 'shadow-xl', 'backdrop-blur-md');
+        navbarContainer.classList.remove('rounded-2xl', 'bg-white/20', 'shadow-xl', 'backdrop-blur-md');
       }
     });
   }
